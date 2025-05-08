@@ -18,7 +18,7 @@ class ProponentsController < ApplicationController
     @proponent = Proponent.new(proponent_params)
 
     if @proponent.save
-      flash[:notice] = "Proponente foi criado com sucesso"
+      flash[:notice] = 'Proponente foi criado com sucesso'
       redirect_to @proponent
     else
       render :new, status: :unprocessable_entity
@@ -30,7 +30,7 @@ class ProponentsController < ApplicationController
 
   def update
     if @proponent.update(proponent_params)
-      flash[:notice] = "Proponente foi atualizado com sucesso"
+      flash[:notice] = 'Proponente foi atualizado com sucesso'
       redirect_to @proponent
     else
       render :edit, status: :unprocessable_entity

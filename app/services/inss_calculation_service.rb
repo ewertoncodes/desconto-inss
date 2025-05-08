@@ -25,7 +25,7 @@ class InssCalculationService
     if @gross_salary > BRACKETS.last[:limit]
       raise ArgumentError, "Gross salary cannot be greater than #{BRACKETS.last[:limit]}"
     elsif @gross_salary.negative?
-      raise ArgumentError, "Gross salary must be positive"
+      raise ArgumentError, 'Gross salary must be positive'
     end
   end
 

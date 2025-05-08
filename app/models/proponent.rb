@@ -2,10 +2,10 @@ class Proponent < ApplicationRecord
   MAX_SALARY = 6101.06
 
   SALARY_RANGES = {
-    "Até R$ 1.045,00" => 0..1045.00,
-    "De R$ 1.045,01 a R$ 2.089,60" => 1045.01..2089.60,
-    "De R$ 2.089,61 até R$ 3.134,40" => 2089.61..3134.40,
-    "De R$ 3.134,41 até R$ 6.101,06" => 3134.41..MAX_SALARY
+    'Até R$ 1.045,00' => 0..1045.00,
+    'De R$ 1.045,01 a R$ 2.089,60' => 1045.01..2089.60,
+    'De R$ 2.089,61 até R$ 3.134,40' => 2089.61..3134.40,
+    'De R$ 3.134,41 até R$ 6.101,06' => 3134.41..MAX_SALARY
   }
 
   validates :name, :cpf, :birth_date, :street, :number, :neighborhood, :city,
@@ -14,7 +14,7 @@ class Proponent < ApplicationRecord
   validate :cpf_must_be_valid
 
   def cpf_must_be_valid
-    errors.add(:cpf, "não é válido") unless CPF.valid?(cpf)
+    errors.add(:cpf, 'não é válido') unless CPF.valid?(cpf)
   end
 
   def self.i18n_scope
