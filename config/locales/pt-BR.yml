@@ -1,0 +1,63 @@
+pt-BR:
+  activerecord:
+    errors:
+      messages:
+        not_a_number: "não é um número"
+        less_than_or_equal_to: "deve ser menor ou igual a %{count}"
+    models:
+      proponent: Proponente
+    attributes:
+      proponent:
+        name: Nome
+        cpf: CPF
+        birth_date: Data de Nascimento
+        street: Rua
+        number: Número
+        neighborhood: Bairro
+        city: Cidade
+        state: Estado
+        zip_code: CEP
+        personal_phone: Telefone Pessoal
+        reference_phone: Telefone de Referência
+        salary: Salário
+    errors:
+      models:
+        proponent:
+          attributes:
+            name:
+              blank: "não pode ficar em branco"
+            cpf:
+              blank: "não pode ficar em branco"
+            birth_date:
+              blank: "não pode ficar em branco"
+            street:
+              blank: "não pode ficar em branco"
+            number:
+              blank: "não pode ficar em branco"
+            neighborhood:
+              blank: "não pode ficar em branco"
+            city:
+              blank: "não pode ficar em branco"
+            state:
+              blank: "não pode ficar em branco"
+            zip_code:
+              blank: "não pode ficar em branco"
+            personal_phone:
+              blank: "não pode ficar em branco"
+            reference_phone:
+              blank: "não pode ficar em branco"
+            salary:
+              blank: "não pode ficar em branco"
+              not_a_number: "não é um número"
+              less_than_or_equal_to: "deve ser menor ou igual a 6101.06"
+  helpers:
+    submit:
+      proponent:
+        create: Salvar
+  views:
+    pagination:
+      first: "Primeira"
+      last: "Última"
+      previous: "Anterior"
+      next: "Próxima"
+      truncate: "..."

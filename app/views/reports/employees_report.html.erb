@@ -1,0 +1,56 @@
+<h1>Relatório dos Funcionários</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Faixa Salarial</th>
+      <th>Número de Funcionários</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @salary_ranges.each do |range, count| %>
+      <tr>
+        <td><%= range %></td>
+        <td><%= count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<canvas id="salaryChart" width="400" height="400"></canvas>
+
+<script>
+  document.addEventListener('turbo:load', () => {
+    const ctx = document.getElementById('salaryChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: <%= @salary_ranges.keys.to_json.html_safe %>,
+        datasets: [{
+          label: 'Número de Funcionários por Faixa Salarial',
+          data: <%= @salary_ranges.values.to_json.html_safe %>,
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  });
+</script>

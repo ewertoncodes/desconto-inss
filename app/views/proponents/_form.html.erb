@@ -1,0 +1,115 @@
+
+    <div class="col-md-8">
+      <%= form_with(model: proponent, local: true, data: {turbo: false} ) do |form| %>
+        
+        <div class="mb-3">
+          <%= form.label :name %>
+          <%= form.text_field :name, id: 'name', class: 'form-control' %>
+          <% if proponent.errors.has_key?(:name) %>
+            <p class="text-danger mt-1"><%= proponent.errors[:name].first %></p>
+          <% end %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :cpf %>
+          <%= form.text_field :cpf, id: 'cpf', class: 'form-control' %>
+          <% if proponent.errors.has_key?(:cpf) %>
+            <p class="text-danger mt-1"><%= proponent.errors[:cpf].first %></p>
+          <% end %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :birth_date %>
+          <%= form.date_field :birth_date, id: 'birth_date', class: 'form-control' %>
+          <% if proponent.errors.has_key?(:birth_date) %>
+            <p class="text-danger mt-1"><%= proponent.errors[:birth_date].first %></p>
+          <% end %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :street %>
+          <%= form.text_field :street, id: 'street', class: 'form-control' %>
+          <% if proponent.errors.has_key?(:street) %>
+            <p class="text-danger mt-1"><%= proponent.errors[:street].first %></p>
+          <% end %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :number %>
+          <%= form.text_field :number, id: 'number', class: 'form-control' %>
+          <% if proponent.errors.has_key?(:number) %>
+            <p class="text-danger mt-1"><%= proponent.errors[:number].first %></p>
+          <% end %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :neighborhood %>
+          <%= form.text_field :neighborhood, id: 'neighborhood', class: 'form-control' %>
+          <% if proponent.errors.has_key?(:neighborhood) %>
+            <p class="text-danger mt-1"><%= proponent.errors[:neighborhood].first %></p>
+          <% end %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :city %>
+          <%= form.text_field :city, id: 'city', class: 'form-control' %>
+          <% if proponent.errors.has_key?(:city) %>
+            <p class="text-danger mt-1"><%= proponent.errors[:city].first %></p>
+          <% end %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :state %>
+          <%= form.text_field :state, id: 'state', class: 'form-control' %>
+          <% if proponent.errors.has_key?(:state) %>
+            <p class="text-danger mt-1"><%= proponent.errors[:state].first %></p>
+          <% end %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :zip_code %>
+          <%= form.text_field :zip_code, id: 'zip_code', class: 'form-control' %>
+          <% if proponent.errors.has_key?(:zip_code) %>
+            <p class="text-danger mt-1"><%= proponent.errors[:zip_code].first %></p>
+          <% end %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :personal_phone %>
+          <%= form.text_field :personal_phone, id: 'personal_phone', class: 'form-control' %>
+          <% if proponent.errors.has_key?(:personal_phone) %>
+            <p class="text-danger mt-1"><%= proponent.errors[:personal_phone].first %></p>
+          <% end %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :reference_phone %>
+          <%= form.text_field :reference_phone, id: 'reference_phone', class: 'form-control' %>
+          <% if proponent.errors.has_key?(:reference_phone) %>
+            <p class="text-danger mt-1"><%= proponent.errors[:reference_phone].first %></p>
+          <% end %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :salary %>
+          <%= form.text_field :salary, id: 'salary', class: 'form-control' %>
+          <% if proponent.errors.has_key?(:salary) %>
+            <p class="text-danger mt-1"><%= proponent.errors[:salary].first %></p>
+          <% end %>
+        </div>
+
+
+        <div class="mb-3">
+          <%= form.label :inss_discount %>
+          <%= form.text_field :inss_discount, id: 'inss_discount', class: 'form-control' %>
+          <% if proponent.errors.has_key?(:inss_discount) %>
+            <p class="text-danger mt-1"><%= proponent.errors[:inss_discount].first %></p>
+          <% end %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.submit "Salvar", class: 'btn btn-primary' %>
+          <%= link_to 'Voltar', proponents_path, class: 'btn btn-secondary' %>
+        </div>
+      <% end %>
+    </div>

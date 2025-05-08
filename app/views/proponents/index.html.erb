@@ -1,0 +1,48 @@
+<!-- app/views/proponents/index.html.erb -->
+
+<div class="container">
+  <h1 class="my-4">Lista de Proponents</h1>
+  
+  <%= link_to 'Novo Proponente', new_proponent_path, class: 'btn btn-primary' %>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>Data de Nascimento</th>
+        <th>Endereço</th>
+        <th>Telefones</th>
+        <th>Salário</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @proponents.each do |proponent| %>
+        <tr>
+          <td><%= proponent.name %></td>
+          <td><%= proponent.cpf %></td>
+          <td><%= proponent.birth_date.strftime("%d/%m/%Y") %></td>
+          <td><%= "#{proponent.street}, #{proponent.number} - #{proponent.neighborhood}, #{proponent.city} - #{proponent.state}, CEP: #{proponent.zip_code}" %></td>
+          <td>
+            <strong>Pessoal:</strong> <%= proponent.personal_phone %><br>
+            <strong>Referência:</strong> <%= proponent.reference_phone %>
+          </td>
+          <td>R$ <%= number_to_currency(proponent.salary) %></td>
+          <td>
+            <%= link_to 'Ver', proponent %>
+            <%= link_to 'Editar', edit_proponent_path(proponent) %>
+            <%= link_to "Remover", proponent_path(proponent), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Tem certeza?"
+                  } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="pagination">
+    <%= paginate @proponents, theme: 'bootstrap-5', pagination_class: "pagination-sm flex-wrap justify-content-center",
+    nav_class: "d-inline-block" %>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <% if flash[:notice] %>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <%= flash[:notice] %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <% end %>
+
+      <h1>Detalhes do Proponente</h1>
+
+      <div class="card mb-3">
+        <div class="card-body">
+          <p><strong>Nome:</strong> <%= @proponent.name %></p>
+          <p><strong>CPF:</strong> <%= @proponent.cpf %></p>
+          <p><strong>Data de Nascimento:</strong> <%= @proponent.birth_date %></p>
+          <p><strong>Endereço:</strong> <%= @proponent.street %>, <%= @proponent.number %> - <%= @proponent.neighborhood %></p>
+          <p><strong>Cidade:</strong> <%= @proponent.city %> - <%= @proponent.state %>, <%= @proponent.zip_code %></p>
+          <p><strong>Telefone Pessoal:</strong> <%= @proponent.personal_phone %></p>
+          <p><strong>Telefone de Referência:</strong> <%= @proponent.reference_phone %></p>
+          <p><strong>Salário:</strong> <%= number_to_currency(@proponent.salary, unit: 'R$', precision: 2) %></p>
+        </div>
+      </div>
+
+      <%= link_to 'Editar', edit_proponent_path(@proponent), class: 'btn btn-primary me-2' %>
+      <%= link_to 'Voltar', proponents_path, class: 'btn btn-secondary' %>
+    </div>
+  </div>
+</div>
